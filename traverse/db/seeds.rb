@@ -25,8 +25,8 @@ place2 = Place.create(yelp_link: "C", address: "kjdfbk", event_id: event2.id)
 
 
 trip2 = Trip.create(title: "Thailand")
-event2_1 = trip.events.create(title: "Bar", date: "2010-01-10", content: "bla")
-event2_2 = trip.events.create(title: "restaurant", date: "2010-01-11", content: "ble")
+event2_1 = trip2.events.create(title: "Bar", date: "2010-01-10", content: "bla")
+event2_2 = trip2.events.create(title: "restaurant", date: "2010-01-11", content: "ble")
 
 event2_1.photos.create(url: "jksdbkj")
 event2_2.photos.create(url: "jksdbkj")

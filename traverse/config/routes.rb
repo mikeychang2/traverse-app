@@ -7,8 +7,11 @@ Rails.application.routes.draw do
 
   resources :trips, except: [:new, :edit, :show] do
     resources :events, except: [:edit, :show]
-    resources :tags, only: [:index, :create, :destroy]
   end
+
+  get '/events/:event_id/tags', :to => 'tags#index'
+  post '/events/:event_id/tags', :to => 'tags#create'
+  delete '/events/:event_id/tags/:id', :to => 'tags#destroy'
 
   post '/events/:event_id/places', :to => 'places#create'
   delete '/events/:event_id/places/:id', :to => 'places#destroy'

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :trips, except: [:new, :edit, :show] do
+  resources :trips, except: [:new, :edit] do
     resources :events, except: [:edit, :show]
   end
 

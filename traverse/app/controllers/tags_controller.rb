@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   def index
-    tags = Tags.where
-    render json: tags
+    # tags = Tag.where
+    # render json: tags
   end
   def create
     event = Event.find(params[:id])

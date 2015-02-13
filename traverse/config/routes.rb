@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :trips, except: [:new, :edit] do
+  resources :trips, except: [:new, :edit, :show] do
     resources :events, except: [:edit, :show]
   end
 
-  get '/events/:event_id/tags', :to => 'tags#index'
+  # get '/events/:event_id/tags', :to => 'tags#index'
   post '/events/:event_id/tags', :to => 'tags#create'
   delete '/events/:event_id/tags/:id', :to => 'tags#destroy'
 

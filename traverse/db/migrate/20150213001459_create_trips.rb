@@ -5,6 +5,7 @@ class CreateTrips < ActiveRecord::Migration
       t.integer :user_id
 
 
+
       t.timestamps
     end
   end

@@ -5,6 +5,27 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :trips, except: [:new, :edit, :show] do
+    resources :events, except: [:edit, :show]
+    resources :tags, only: [:index, :create, :destroy]
+  end
+
+  post '/events/:event_id/places', :to => 'places#create'
+  delete '/events/:event_id/places/:id', :to => 'places#destroy'
+
+  post '/events/:event_id/photos', :to => 'photos#create'
+  delete '/events/:event_id/photos/:id', :to => 'photos#destroy'
+
+  # resources :trips do
+  #   resources :events
+  #   resources :tags
+  # end
+
+  # resources :events do
+  #   resources :photos
+  #   resources :places
+  # end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

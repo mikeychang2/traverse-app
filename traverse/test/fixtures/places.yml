@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  yelp_link: MyString
+  address: MyString
+  name: MyString
+  photo_url: MyString
+
+two:
+  yelp_link: MyString
+  address: MyString
+  name: MyString
+  photo_url: MyString

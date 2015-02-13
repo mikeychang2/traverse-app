@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   def create
     trip = Trip.find(params[:trip_id])
-    event = trip.events.create(params[:event])
+    event = trip.events.create(event_params)
     render json: event
   end
 
@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    updated_event = event.update(params[:event])
+    updated_event = event.update(event_params)
     render json: updated_event
   end
 
@@ -26,4 +26,10 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     event.destroy
   end
+
+  private
+  def events_params
+    params.require(:event).permit(:title, :date, :content, :trip_id)
+  end
+
 end

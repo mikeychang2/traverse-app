@@ -6,7 +6,9 @@ class TagsController < ApplicationController
   def create
     event = Event.find(params[:id])
     trip_id = event.trip_id
-    tag = event.tags.create(name: params[:name], trip_id: trip_id)
+    tag = event.tags.create(tags_params)
+    tag.trip_id = trip_id
+    # tag = event.tags.create(name: params[:name], trip_id: trip_id)
     render json: tag
   end
 
@@ -14,4 +16,12 @@ class TagsController < ApplicationController
     tag = Tag.find(params[:id])
     tag.destroy
   end
+
+  private
+  def tags_params
+    params.require(:tag).permit(:name, :trip_id, :event_id)
+  end
+
+
+
 end

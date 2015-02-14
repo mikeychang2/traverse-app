@@ -2,6 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+# facebook auth
+require 'dotenv'
+Dotenv.load
+require "active_record/railtie"
+#  end =====
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -20,10 +26,35 @@ module Traverse
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.middleware.insert_before 0, "Rack::Cors" do
+    # old code ===
+
+    # config.middleware.insert_before 0, "Rack::Cors" do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :options]
+    #   end
+    # end
+
+    # end old code ===
+
+ config.app_generators.scaffold_controller :responders_controller
+    config.active_record.raise_in_transactional_callbacks = true
+
+    # Added for Devise to work (https://github.com/rails-api/rails-api/issues/38)
+    config.middleware.use config.session_store, config.session_options
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::Flash
+
+    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :delete, :put, :options, :head],
+          :credentials => true,
+          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client']
       end
     end
 

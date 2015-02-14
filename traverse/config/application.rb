@@ -55,6 +55,7 @@ module Traverse
           :methods => [:get, :post, :delete, :put, :options, :head],
           :credentials => true,
           :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client']
+
       end
     end
 

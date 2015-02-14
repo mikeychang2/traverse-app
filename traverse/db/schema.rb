@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213223715) do
+ActiveRecord::Schema.define(version: 20150214093600) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "event_tags", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "tag_id"
+    t.integer  "trip_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_tags", ["event_id"], name: "index_event_tags_on_event_id", using: :btree
+  add_index "event_tags", ["tag_id"], name: "index_event_tags_on_tag_id", using: :btree
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,13 +58,15 @@ ActiveRecord::Schema.define(version: 20150213223715) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.integer  "event_id"
-    t.integer  "trip_id"
+    t.string   "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "trips", force: :cascade do |t|
+
+
+  create_table "trips", force: true do |t|
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
     t.string   "title"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -83,7 +99,9 @@ ActiveRecord::Schema.define(version: 20150213223715) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
+
 
 end

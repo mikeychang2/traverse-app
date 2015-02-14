@@ -6,24 +6,28 @@ class TripsController < ApplicationController
   end
 
   def create
+    p params
     trip = Trip.create(trips_params)
     render json: trip
   end
 
   def update
+    # p params
     trip = Trip.find(params[:id])
-    updated_trip = trip.update(trips_params)
-    render json: updated_trip
+    trip.update(trips_params)
+    render json: trip
   end
 
   def destroy
+    # p params
     trip = Trip.find(params[:id])
     trip.destroy
+    render json: trip
   end
 
   private
   def trips_params
-    params.require(:trip).permit(:title)
+    params.require(:trip).permit(:title, :user_id)
   end
 
 end

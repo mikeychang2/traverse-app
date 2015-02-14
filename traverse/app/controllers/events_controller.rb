@@ -29,6 +29,23 @@ class EventsController < ApplicationController
     render json: event
   end
 
+  def tag
+    trip = Trip.find(params[:trip_id])
+    tags = Tag.where(trip_id: trip.id and name: params[:name])
+    events = []
+    tags.each do |tag|
+      events.push(EventsTags.find_by(tag_id: tag.id).event_id)
+    end
+
+    event_array = []
+    events.each do |event_id|
+      event_array.push(Event.find(event_id))
+    end
+
+    render json: event_array
+
+  end
+
   private
   def events_params
     params.require(:event).permit(:title, :date, :content, :trip_id)

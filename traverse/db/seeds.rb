@@ -13,10 +13,10 @@ event2 = trip.events.create(title: "restaurant", date: "2010-01-11", content: "b
 event1.photos.create(url: "jksdbkj")
 event2.photos.create(url: "jksdbkj")
 
-event1.tags.create(name: "bars", trip_id: trip.id)
-event1.tags.create(name: "restaurant", trip_id: trip.id)
-event2.tags.create(name: "bars", trip_id: trip.id)
-event2.tags.create(name: "beach", trip_id: trip.id)
+event1.tags.create(name: "bars")
+event1.tags.create(name: "restaurant")
+event2.tags.create(name: "restaurant")
+event2.tags.create(name: "beach")
 
 place1 = Place.create(yelp_link: "A", address: "kjdfbk", event_id: event1.id)
 place2 = Place.create(yelp_link: "C", address: "kjdfbk", event_id: event2.id)
@@ -31,10 +31,10 @@ event2_2 = trip2.events.create(title: "restaurant", date: "2010-01-11", content:
 event2_1.photos.create(url: "jksdbkj")
 event2_2.photos.create(url: "jksdbkj")
 
-event2_1.tags.create(name: "bars", trip_id: trip2.id)
-event2_1.tags.create(name: "restaurant", trip_id: trip2.id)
-event2_2.tags.create(name: "bars", trip_id: trip2.id)
-event2_2.tags.create(name: "beach", trip_id: trip2.id)
+event2_1.tags.create(name: "bars")
+event2_1.tags.create(name: "restaurant")
+event2_2.tags.create(name: "restaurant")
+event2_2.tags.create(name: "beach")
 
 place2_1 = Place.create(yelp_link: "A", address: "kjdfbk", event_id: event2_1.id)
 place2_2 = Place.create(yelp_link: "C", address: "kjdfbk", event_id: event2_2.id)

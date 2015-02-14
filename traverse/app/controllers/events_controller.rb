@@ -30,20 +30,49 @@ class EventsController < ApplicationController
   end
 
   def tag
+    # trip = Trip.find(params[:trip_id])
+    # tags = Tag.where(trip_id: trip.id and name: params[:name])
+    # events = []
+    # tags.each do |tag|
+    #   events.push(EventsTags.find_by(tag_id: tag.id).event_id)
+    # end
+
+    # event_array = []
+    # events.each do |event_id|
+    #   event_array.push(Event.find(event_id))
+
+# BLUEPRINT BEGIN
     trip = Trip.find(params[:trip_id])
-    tags = Tag.where(trip_id: trip.id and name: params[:name])
-    events = []
+    tags = Tag.where(["trip_id = ? and name = ?", trip.id, params[:name]])
+
+    event_ids = []
     tags.each do |tag|
-      events.push(EventsTags.find_by(tag_id: tag.id).event_id)
+      event_ids.push(EventsTags.find_by(tag_id: tag.id).event_id)
     end
 
     event_array = []
-    events.each do |event_id|
+    event_ids.each do |event_id|
       event_array.push(Event.find(event_id))
     end
-
     render json: event_array
+  end
+# BLUEPRINT END
 
+# ROUTE TEST BEGIN
+    # trip = Trip.find(params[:trip_id])
+    # tags = Tag.where(["trip_id = ? and name = ?", trip.id, "Testing"])
+
+    # event_ids = []
+    # tags.each do |tag|
+    #   event_ids.push(EventsTags.find_by(tag_id: tag.id).event_id)
+    # end
+
+    # event_array = []
+    # event_ids.each do |event_id|
+    #   event_array.push(Event.find(event_id))
+    # end
+    # render json: event_array
+  # ROUTE TEST END
   end
 
   private

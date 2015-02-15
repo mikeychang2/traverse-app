@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :trips, dependent: :destroy
 
+  def generate_auth_token
+    payload = { user_id: self.id }
+    payload[:exp] = (72.hours.from_now).to_i
+    JWT.encode(payload, Rails.application.secrets.secret_key_base)
+  end
 end

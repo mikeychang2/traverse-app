@@ -24,7 +24,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    event = Event.find(params[:id])
+    trip = Trip.find(params[:trip_id])
+    event = trip.events.find_by(id: params[:id])
     event.destroy
     render json: event
   end

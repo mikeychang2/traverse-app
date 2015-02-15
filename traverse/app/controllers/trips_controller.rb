@@ -20,14 +20,14 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    # p params
-    trip = Trip.find(params[:id])
+    trip = Trip.find_by(id: params[:id])
     trip.destroy
+    # redirect_to trips_path
     return render json: trip
   end
 
   private
-    def trip_params
+    def trips_params
       params.require(:trip).permit(:title)
     end
 

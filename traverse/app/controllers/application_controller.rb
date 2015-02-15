@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :set_current_user
-
-  # :authenticate_request
+  before_action :set_current_user, :authenticate_request
 
   # rescue_from NotAuthenticatedError do
   #   render json: { error: 'Not Authorized' }, status: :unauthorized
@@ -20,21 +18,22 @@ class ApplicationController < ActionController::API
   end
 
   # Check to make sure the current user was set and the token is not expired
-  # def authenticate_request
-  #   if auth_token_expired?
-  #     fail AuthenticationTimeoutError
-  #   elsif !@current_user
-  #     fail NotAuthenticatedError
-  #   end
-  # end
-
-  def decoded_auth_token
-    @decoded_auth_token ||= JWT.decode(http_auth_header_content, Rails.application.secrets.secret_key_base)
+  def authenticate_request
+    if auth_token_expired?
+      fail AuthenticationTimeoutError
+    elsif !@current_user
+      fail NotAuthenticatedError
+    end
   end
 
-  # def auth_token_expired?
-  #   decoded_auth_token && decoded_auth_token.expired?
-  # end
+  def decoded_auth_token
+    @decoded_token = JWT.decode(http_auth_header_content, Rails.application.secrets.secret_key_base)
+    @decoded_auth_token ||= @decoded_token
+  end
+
+  def auth_token_expired?
+    decoded_auth_token && @decoded_token['exp'] <= Time.now.to_i
+  end
 
   # JWT's are stored in the Authorization header using this format:
   # Bearer somerandomstring.encoded-payload.anotherrandomstring

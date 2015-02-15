@@ -1,25 +1,24 @@
 class TripsController < ApplicationController
 
   def index
-    trips = Trip.all
+    user = @current_user
+    trips = Trip.where(user_id: user.id)
     render json: trips
   end
 
   def create
-    p params
-    trip = Trip.create(trips_params)
+    user = @current_user
+    trip = user.trips.create(trips_params)
     render json: trip
   end
 
   def update
-    # p params
     trip = Trip.find(params[:id])
     trip.update(trips_params)
     render json: trip
   end
 
   def destroy
-    # p params
     trip = Trip.find(params[:id])
     trip.destroy
     render json: trip

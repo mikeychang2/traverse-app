@@ -6,9 +6,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    p params
     trip = Trip.find(params[:trip_id])
-    event = trip.events.create(events_params)
+    # event = trip.events.create(events_params)
+    event = trip.events.create(title: params[:title])
     render json: event
   end
 

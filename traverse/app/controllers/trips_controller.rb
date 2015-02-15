@@ -7,6 +7,8 @@ class TripsController < ApplicationController
 
   def create
     trip = Trip.create(title: params[:title])
+    # need to figure out creating trip using strong params
+    # trip = Trip.create(trips_params[:title])
     return render json: trip
   end
 

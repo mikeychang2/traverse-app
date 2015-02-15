@@ -1,12 +1,19 @@
+# Not sure if this should be here
+class NotAuthenticatedError < StandardError
+end
+
+class AuthenticationTimeoutError < StandardError
+end
+
 class ApplicationController < ActionController::API
   before_action :set_current_user, :authenticate_request
 
-  # rescue_from NotAuthenticatedError do
-  #   render json: { error: 'Not Authorized' }, status: :unauthorized
-  # end
-  # rescue_from AuthenticationTimeoutError do
-  #   render json: { error: 'Auth token is expired' }, status: 419 # unofficial timeout status code
-  # end
+  rescue_from NotAuthenticatedError do
+    render json: { error: 'Not Authorized' }, status: :unauthorized
+  end
+  rescue_from AuthenticationTimeoutError do
+    render json: { error: 'Auth token is expired' }, status: 419 # unofficial timeout status code
+  end
 
   private
 
@@ -48,4 +55,6 @@ class ApplicationController < ActionController::API
     end
   end
 end
+
+
 

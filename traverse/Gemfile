@@ -33,13 +33,8 @@ gem 'rack-cors', :require => 'rack/cors'
 
 #  Additional GEMS ==================
 
-gem 'pg'
 gem 'dotenv-rails', :groups => [:development, :test]
 
-
-gem 'devise_token_auth', '~>0.1.32.beta'
-gem 'omniauth'
-gem 'omniauth-facebook'
 
 gem "figaro"
 gem "responders"

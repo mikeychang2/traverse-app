@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'login/authenticate'
+
   get 'welcome/index'
 
   resources :users
@@ -18,5 +20,8 @@ Rails.application.routes.draw do
 
   post '/events/:event_id/photos', :to => 'photos#create'
   delete '/events/:event_id/photos/:id', :to => 'photos#destroy'
+
+  get '/auth' => 'auth#authenticate'
+  post '/auth' => 'auth#authenticate'
 
 end

@@ -18,10 +18,11 @@ class FacebookController < ApplicationController
     render json: urls
   end
 
-  def validation
-    access_token = @current_user.fb_token
-    user_id = @current_user.fb_uid
-    response = HTTParty.get("https://graph.facebook.com/v2.2/#{user_id}/photos/uploaded?access_token=#{access_token}")
-  end
+  # check access token expiration and re-validate it (CLIENT-SIDE: facebookController: .checkAccessToken)
+  # def validation
+  #   access_token = @current_user.fb_token
+  #   user_id = @current_user.fb_uid
+  #   response = HTTParty.get("https://graph.facebook.com/v2.2/#{user_id}/photos/uploaded?access_token=#{access_token}")
+  # end
 
 end

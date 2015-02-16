@@ -8,7 +8,7 @@ class TripsController < ApplicationController
 
   def create
     user = @current_user
-    trip = user.trips.create(trips_params)
+    trip = user.trips.create(title: params[:title])
     render json: trip
   end
 

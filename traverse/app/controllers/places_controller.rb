@@ -1,8 +1,12 @@
 class PlacesController < ApplicationController
   def create
-    p params
+    @yelp_link = request.url
+    @address = params[:location][:coordinate]
+    @photo_url = params[:image_url]
+    @name = params[:name]
+
     event = Event.find(params[:event_id])
-    place = Place.create(places_params)
+    place = event.places.create(yelp_link: @yelp_link, address: @address, photo_url: @photo_url, name: @name)
     place.update(event_id: event.id)
     render json: place
   end

@@ -1,20 +1,13 @@
 class TagsController < ApplicationController
 
  def index
-  # p params
-  # trip = Trip.find(params[:trip_id])
-  # tags = Tag.where(trip_id: trip.id)
-
-  # tag_array = tags.map{|tag| tag.name}
-
-  # render json: tag_array.uniq!
-
   trip = Trip.find(params[:trip_id])
   events_tags = EventTag.where(trip_id: trip.id)
   tag_ids = events_tags.map{|event| event.tag_id}
   tags = tag_ids.map{|id| Tag.find(id)}
+  tags.uniq!
+  return render json: tags
 
-  render json: tags.uniq!
  end
 
   def create

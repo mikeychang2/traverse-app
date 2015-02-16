@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   get '/auth' => 'auth#authenticate'
   post '/auth' => 'auth#authenticate'
 
+  get '/facebook' => 'facebook#save_token'
 end

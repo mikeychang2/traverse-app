@@ -8,7 +8,7 @@ class AuthController < ApplicationController
 
     # NEED TO ADD THE PASSWORD VERIFICATION BACK IN
     if user && user.authenticate(@password)
-      render json: { auth_token: user.generate_auth_token }
+      render json: { auth_token: user.generate_auth_token, user_id: user.id}
     else
       render json: { error: 'Invalid username or password' }, status: :unauthorized
     end

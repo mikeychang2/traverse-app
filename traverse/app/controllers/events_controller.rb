@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
   def index
+    # user = @current_user
+    # trips = Trip.where(user_id: user.id)
+    #
+
     trip = Trip.find(params[:trip_id])
     events = trip.events.all
     render json: events
@@ -8,7 +12,7 @@ class EventsController < ApplicationController
   def create
     trip = Trip.find(params[:trip_id])
     # event = trip.events.create(events_params)
-    event = trip.events.create(title: params[:title])
+    event = trip.events.create(title: params[:title], content: params[:content], date: params[:date])
     render json: event
   end
 

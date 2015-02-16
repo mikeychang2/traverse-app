@@ -5,7 +5,6 @@ class FacebookController < ApplicationController
     if @current_user.fb_token != params[:accessToken]
       @current_user.update(fb_uid: params[:user_id], fb_token: params[:accessToken])
     end
-    # render json: {fb_auth: true}
   end
 
   def photos
@@ -18,5 +17,4 @@ class FacebookController < ApplicationController
   end
 
 
- # HELLOOOO PLEASE TEST THIS PHOTOS ROUTE FIRST HTTParty
 end

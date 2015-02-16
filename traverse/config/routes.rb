@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   get '/facebook' => 'facebook#save_token'
 
   get '/facebook/photos' => 'facebook#photos'
+
+  get '/facebook/validation' => 'facebook#validation'
 end

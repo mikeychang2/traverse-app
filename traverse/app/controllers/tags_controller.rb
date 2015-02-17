@@ -45,6 +45,23 @@ class TagsController < ApplicationController
     render json: tag
   end
 
+
+  # def event_tags
+
+  #   # find the tag name in the tag table
+  #   tag = Tag.where(name: params[:name])
+  #   # find the id of that tag in the tag table
+  #   tag_id = tag.first.id
+  #   # find that same tag id in the join table and use first b/c where returns an array
+  #   joins = EventTag.where(tag_id: tag.id)
+  #   # join table and return event ids of the matching tag ids
+  #   event_ids = joins.map { |entry| entry.event_id }
+  #   # event_ids and ptll the event objects from the Event table
+  #   results = event_ids.map { |id| Event.find(id)}
+
+  #   render json: results
+  # end
+
   private
   def tags_params
     params.require(:tag).permit(:name, :event_id)

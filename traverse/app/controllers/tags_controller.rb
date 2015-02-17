@@ -11,10 +11,11 @@ class TagsController < ApplicationController
  end
 
   def create
-    p params
+    # p params
     event = Event.find(params[:event_id])
     trip_id = event.trip_id
-    tag_name = (tags_params[:name]).downcase
+    tag_name = params[:name]
+    tag_name.downcase
     input_tag = Tag.find_by(name: tag_name)
 
     tag = Tag.new(name: tag_name)

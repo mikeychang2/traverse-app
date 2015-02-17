@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete '/events/:event_id/tags/:id', :to => 'tags#destroy'
 
   post '/events/:event_id/places', :to => 'places#create'
+  post '/yelp', :to => 'places#yelp'
   delete '/events/:event_id/places/:id', :to => 'places#destroy'
 
   post '/events/:event_id/photos', :to => 'photos#create'
@@ -21,5 +22,7 @@ Rails.application.routes.draw do
 
   get '/auth' => 'auth#authenticate'
   post '/auth' => 'auth#authenticate'
+
+
 
 end

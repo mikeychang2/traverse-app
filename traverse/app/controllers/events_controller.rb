@@ -10,9 +10,15 @@ class EventsController < ApplicationController
   end
 
   def create
+    p '###' * 25 + 'Creating an EVENT Params'
+    p params
     trip = Trip.find(params[:trip_id])
     # event = trip.events.create(events_params)
     event = trip.events.create(title: params[:title], content: params[:content], date: params[:date])
+    # event = trip.events.create()
+    p '###' * 25 + 'EVENT creating object'
+    p event
+
     render json: event
   end
 
@@ -23,7 +29,7 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    event.update(events_params)
+    event.update(title: params[:title], content: params[:content], date: params[:date])
     render json: event
   end
 
@@ -35,12 +41,14 @@ class EventsController < ApplicationController
   end
 
   def tag
+    p '###' * 25 + 'Get Events By Tag'
     p params
-    tag_name = params[:name].downcase
-    tag = Tag.find_by(name: tag_name)
+    # tag_name = params[:name].downcase
+    tag = Tag.find(params[:tag_id])
     events_by_tag = tag.events.where(trip_id: params[:trip_id])
 
     render json: events_by_tag
+  end
 # BLUEPRINT BEGIN
   # p params
   #   trip = Trip.find(params[:trip_id])
@@ -56,7 +64,6 @@ class EventsController < ApplicationController
   #     event_array.push(Event.find(event_id))
   #   end
   #   render json: event_array
-  end
 
 
   private

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :events, except: [:edit, :show]
   end
 
-  get '/trips/:trip_id/events_by_tag', :to => 'events#tag'
+
+  # get '/trips/:trip_id/event_tags', :to => 'tags#event_tags'
+  get '/trips/:trip_id/events_by_tag/:tag_id', :to => 'events#tag'
 
   get '/trips/:trip_id/tags', :to => 'tags#index'
   post '/events/:event_id/tags', :to => 'tags#create'

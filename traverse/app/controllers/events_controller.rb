@@ -64,7 +64,6 @@ class EventsController < ApplicationController
   #     event_array.push(Event.find(event_id))
   #   end
   #   render json: event_array
-  end
 
 
   private

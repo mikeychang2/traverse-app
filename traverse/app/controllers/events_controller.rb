@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    event.update(events_params)
+    event.update(title: params[:title], content: params[:content], date: params[:date])
     render json: event
   end
 

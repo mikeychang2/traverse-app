@@ -10,9 +10,15 @@ class EventsController < ApplicationController
   end
 
   def create
+    p '###' * 25 + 'Creating an EVENT Params'
+    p params
     trip = Trip.find(params[:trip_id])
     # event = trip.events.create(events_params)
     event = trip.events.create(title: params[:title], content: params[:content], date: params[:date])
+    # event = trip.events.create()
+    p '###' * 25 + 'EVENT creating object'
+    p event
+
     render json: event
   end
 

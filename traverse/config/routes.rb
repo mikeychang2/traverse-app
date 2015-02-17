@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   get '/facebook/photos' => 'facebook#photos'
   get '/facebook/validation' => 'facebook#validation'
 
-  get '/instagram' => 'instagram#request_token'
-  get '/instagram/response' => 'instagram#oauth'
+  get '/instagram' => 'instagram#oauth_token'
+  get '/instagram/response' => 'instagram#oauth_token'
   get '/instagram/photos' => 'instagram#photos'
 
 end

@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   def create
     trip = Trip.find(params[:trip_id])
     event = trip.events.create()
+
     render json: event
   end
 
@@ -23,7 +24,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    event = Event.find(params[:id])
+    trip = Trip.find(params[:trip_id])
+    event = trip.events.find_by(id: params[:id])
     event.destroy
     render json: event
   end

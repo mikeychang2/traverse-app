@@ -9,6 +9,7 @@ class TripsController < ApplicationController
   def create
     user = @current_user
     trip = user.trips.create(title: params[:title])
+
     return render json: trip
   end
 

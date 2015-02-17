@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete '/events/:event_id/tags/:id', :to => 'tags#destroy'
 
   post '/events/:event_id/places', :to => 'places#create'
+  post '/yelp', :to => 'places#yelp'
   delete '/events/:event_id/places/:id', :to => 'places#destroy'
 
   post '/events/:event_id/photos', :to => 'photos#create'
@@ -23,8 +24,7 @@ Rails.application.routes.draw do
   post '/auth' => 'auth#authenticate'
 
   get '/facebook' => 'facebook#save_token'
-
   get '/facebook/photos' => 'facebook#photos'
-
   get '/facebook/validation' => 'facebook#validation'
+
 end

@@ -33,9 +33,11 @@ class TripsController < ApplicationController
     trip_events = trip.events
     places = []
     trip_events.each do |event|
-      places.push(event.place)
+      if event.place != nil && event.place.coordinates != nil
+        places.push(event.place)
+      end
     end
-    
+    p places
     return render json: places
 
   end

@@ -2,11 +2,23 @@ class EventsController < ApplicationController
   def index
     # user = @current_user
     # trips = Trip.where(user_id: user.id)
-    #
 
     trip = Trip.find(params[:trip_id])
     events = trip.events.all
+
     render json: events
+  end
+
+  def all_trip_events
+    trip = Trip.find(params[:trip_id])
+    events = trip.events.all
+
+    events_and_photos = []
+    trip.events.each do |entry|
+      array_events_photos = [entry,entry.photos]
+      events_and_photos.push(array_events_photos)
+    end
+    render json: events_and_photos
   end
 
   def create
@@ -61,21 +73,7 @@ class EventsController < ApplicationController
 
     render json: event
   end
-# BLUEPRINT BEGIN
-  # p params
-  #   trip = Trip.find(params[:trip_id])
-  #   tags = Tag.where(["trip_id = ? and name = ?", trip.id, params[:name]])
 
-  #   event_ids = []
-  #   tags.each do |tag|
-  #     event_ids.push(EventsTags.find_by(tag_id: tag.id).event_id)
-  #   end
-
-  #   event_array = []
-  #   event_ids.each do |event_id|
-  #     event_array.push(Event.find(event_id))
-  #   end
-  #   render json: event_array
 
 
   private

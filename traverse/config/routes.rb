@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/yelp', :to => 'places#yelp'
   delete '/events/:event_id/places/:id', :to => 'places#destroy'
 
+  get '/events/:event_id/photos', :to => 'photos#photos_for_one_event'
   post '/events/:event_id/photos', :to => 'photos#create'
   delete '/events/:event_id/photos/:id', :to => 'photos#destroy'
 

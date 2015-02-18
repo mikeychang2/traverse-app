@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   get '/facebook/photos' => 'facebook#photos'
   get '/facebook/validation' => 'facebook#validation'
 
+  get '/trips/:trip_id/map' => 'trips#map'
+
 end

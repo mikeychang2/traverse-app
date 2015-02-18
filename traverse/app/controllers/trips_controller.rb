@@ -27,6 +27,19 @@ class TripsController < ApplicationController
     return render json: trip
   end
 
+  def map
+    user = @current_user
+    trip = Trip.find(params[:trip_id])
+    trip_events = trip.events
+    places = []
+    trip_events.each do |event|
+      places.push(event.place)
+    end
+    
+    return render json: places
+
+  end
+
   private
     def trips_params
       params.require(:trip).permit(:title)

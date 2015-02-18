@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
 
  def index
+  # returns all tags for one trip
   trip = Trip.find(params[:trip_id])
   events_tags = EventTag.where(trip_id: trip.id)
   tag_ids = events_tags.map{|event| event.tag_id}

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/trips/:trip_id/events_by_tag/:tag_id', :to => 'events#tag'
   get '/trips/:trip_id/events/:event_id/tags', :to => 'events#tags_for_one_event'
 
+  get '/trips/:trip_id/all_events', :to => 'events#all_trip_events'
+
   get '/trips/:trip_id/tags', :to => 'tags#index'
   post '/events/:event_id/tags', :to => 'tags#create'
   delete '/events/:event_id/tags/:id', :to => 'tags#destroy'

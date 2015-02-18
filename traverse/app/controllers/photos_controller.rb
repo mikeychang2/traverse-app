@@ -21,6 +21,13 @@ class PhotosController < ApplicationController
     render json: photo
   end
 
+  def photos_for_one_event
+    photos = Photo.where(event_id: params[:event_id])
+    photo_urls = photos.map { |entry| entry.url }
+    photo_urls.uniq!
+    render json: photo_urls
+  end
+
   private
   def photos_params
     params.require(:photo).permit(:url, :event_id)

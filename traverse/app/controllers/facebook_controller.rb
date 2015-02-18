@@ -12,6 +12,7 @@ class FacebookController < ApplicationController
   def photos
     access_token = @current_user.fb_token
     user_id = @current_user.fb_uid
+
     response = HTTParty.get("https://graph.facebook.com/v2.2/#{user_id}/photos/uploaded?access_token=#{access_token}")
     urls = response.parsed_response["data"].map { |image| image["images"][0]["source"] }
     p urls

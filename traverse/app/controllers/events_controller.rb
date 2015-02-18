@@ -37,6 +37,7 @@ class EventsController < ApplicationController
   end
 
   def tag
+    # returns events with a specific tag name
     p '###' * 25 + 'Get Events By Tag'
     p params
     # tag_name = params[:name].downcase
@@ -44,6 +45,21 @@ class EventsController < ApplicationController
     events_by_tag = tag.events.where(trip_id: params[:trip_id])
 
     render json: events_by_tag
+  end
+
+  def tags_for_one_event
+    event = Event.find(params[:event_id])
+    joins = EventTag.where(event_id: event.id) #returns array
+    tag_ids = joins.map { |entry| entry.tag_id}
+    tag_objs = tag_ids.map{ |id| Tag.find(id) } #return array of objs
+    return render json: tag_objs
+  end
+
+  def show
+    # trip = Trip.find(params[:trip_id])
+    event = Event.find(params[:id])
+
+    render json: event
   end
 # BLUEPRINT BEGIN
   # p params

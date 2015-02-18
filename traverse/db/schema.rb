@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20150218120500) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo",      default: "https://stocksnap.io/img-thumbs/280h/E6CAA82218.jpg"
+    t.string   "photo",      default: "https://unsplash.imgix.net/11/converse-fields.jpg?fit=crop&fm=jpg&h=800&q=75&w=1050"
   end
 
   create_table "users", force: :cascade do |t|

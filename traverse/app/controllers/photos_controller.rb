@@ -5,9 +5,13 @@ class PhotosController < ApplicationController
     p "%" *20
     event = Event.find(params[:event_id])
     photos = params[:photos]
+
+    p params[:photos]
+
     photos.each do |photo|
       event.photos.create(url: photo)
     end
+
     render json: photos
   end
 

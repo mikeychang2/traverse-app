@@ -49,6 +49,19 @@ class InstagramController < ApplicationController
     render json: urls
   end
 
+  def checker
+    p "#" * 20
+    p @current_user.ig_token
+    p "#" * 20
+    if @current_user.ig_token != nil
+      render json: true
+    else
+      render json: false
+    end
+
+  end
+
+
 end
 
 

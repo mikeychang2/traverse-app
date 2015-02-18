@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   get '/instagram/response' => 'instagram#oauth_token'
   get '/instagram/photos' => 'instagram#photos'
   get '/instagram/checker' => 'instagram#checker'
+  get '/trips/:trip_id/map' => 'trips#map'
 
 end

@@ -54,9 +54,23 @@ class EventsController < ApplicationController
     p params
     # tag_name = params[:name].downcase
     tag = Tag.find(params[:tag_id])
+    tag_name = tag.name
     events_by_tag = tag.events.where(trip_id: params[:trip_id])
+    all_places = []
+    places = tag.events.each do |event|
+      all_places << event.place
+    end
 
-    render json: events_by_tag
+    all_photos = []
+    places = events_by_tag.each do |event|
+      event.photos.each do |photo|
+        all_photos << photo
+      end
+    end
+
+    p all_photos
+
+    render json: { events: events_by_tag, tag_name: tag_name, places: all_places, photos: all_photos }
   end
 
   def tags_for_one_event

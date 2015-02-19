@@ -1,16 +1,24 @@
 class PhotosController < ApplicationController
   def create
-    p "%" *20
-    p params
-    p "%" *20
+    # p "%" *20
+    # p params
+    # p "%" *20
     event = Event.find(params[:event_id])
+    trip = Trip.find(event.trip_id)
     photos = params[:photos]
 
     p params[:photos]
 
     photos.each do |photo|
-      event.photos.create(url: photo)
+      @last_photo = event.photos.create(url: photo)
     end
+
+    # p "%" *20
+    # p @last_photo
+    # p event.id
+    # p trip.id
+    # p "%" *20
+    trip.update(photo: @last_photo.url)
 
     render json: photos
   end

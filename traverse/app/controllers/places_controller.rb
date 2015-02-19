@@ -27,7 +27,7 @@ class PlacesController < ApplicationController
     p params
     p "#" * 20
     locale = {lang: 'en'}
-    parameters = { term: params[:term], limit: 10 }
+    parameters = { term: params[:term], limit: 20 }
     render json: Yelp.client.search(params[:location], parameters, locale)
   end
 

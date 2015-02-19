@@ -39,4 +39,6 @@ Rails.application.routes.draw do
   get '/instagram/checker' => 'instagram#checker'
   get '/trips/:trip_id/map' => 'trips#map'
 
+  get '/tags/default' => 'tags#default_tags'
+
 end

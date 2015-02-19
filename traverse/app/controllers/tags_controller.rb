@@ -46,6 +46,14 @@ class TagsController < ApplicationController
     render json: tag
   end
 
+  def default_tags
+    tags_object = Tag.where(default_photo: true)
+    tags = tags_object.map do |tag|
+      tag.name
+    end
+    render json: tags
+  end
+
 
   # def event_tags
 

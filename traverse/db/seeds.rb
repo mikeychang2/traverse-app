@@ -64,17 +64,17 @@
 
 Tag.create(name: "bars", photo_url: "https://stocksnap.io/img-thumbs/960w/4178415E1A.jpg", default_photo: true)
 
-Tag.create(name: "restaurants", photo_url: "https://ununsplash.imgix.net/reserve/oMRKkMc4RSq7N91OZl0O_IMG_8309.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050", default_photo: true)
+Tag.create(name: "restaurants", photo_url: "http://media-cdn.tripadvisor.com/media/photo-s/02/b5/8d/55/simge-restaurant.jpg", default_photo: true)
 
-Tag.create(name: "cafe", photo_url: "https://stocksnap.io/img-thumbs/280h/QJJJN8RWGX.jpg", default_photo: true)
+Tag.create(name: "cafe", photo_url: "https://unsplash.imgix.net/photo-1418479631014-8cbf89db3431?fit=crop&fm=jpg&h=700&q=75&w=1050", default_photo: true)
 
-Tag.create(name: "parks", photo_url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTiOXEIOl-SEBLdebTDkwvvyozja31QLl6VEbGoRI7hVZz2W24ZUA", default_photo: true)
+Tag.create(name: "parks", photo_url: "https://stocksnap.io/img-thumbs/280h/47C952DE09.jpg", default_photo: true)
 
-Tag.create(name: "nature", photo_url: "https://unsplash.imgix.net/photo-1418065460487-3e41a6c84dc5?fit=crop&fm=jpg&h=700&q=75&w=1050", default_photo: true)
+Tag.create(name: "nature", photo_url: "https://stocksnap.io/img-thumbs/280h/5AYVZQIA71.jpg", default_photo: true)
 
-Tag.create(name: "landmarks", photo_url: "https://unsplash.imgix.net/photo-1414005987108-a6d06de8769f?fit=crop&fm=jpg&h=800&q=75&w=1050", default_photo: true)
+Tag.create(name: "landmarks", photo_url: "https://stocksnap.io/img-thumbs/280h/K3QVV6V7UP.jpg", default_photo: true)
 
-Tag.create(name: "hikes", photo_url: "https://unsplash.imgix.net/uploads/1411589183965bdf6e141/5f468e98?fit=crop&fm=jpg&h=700&q=75&w=1050", default_photo: true)
+Tag.create(name: "hikes", photo_url: "http://argyruntum.com/wp-content/uploads/2014/03/hiking.jpg", default_photo: true)
 
 Tag.create(name: "excursions", photo_url: "https://unsplash.imgix.net/photo-1414924347000-9823c338079b?fit=crop&fm=jpg&h=700&q=75&w=1050", default_photo: true)
 
@@ -82,13 +82,13 @@ Tag.create(name: "festivals", photo_url: "https://ununsplash.imgix.net/46/unspla
 
 Tag.create(name: "tours", photo_url: "https://unsplash.imgix.net/45/eDLHCtzRR0yfFtU0BQar_sylwiabartyzel_themap.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050", default_photo: true)
 
-Tag.create(name: "museum", photo_url: "http://travelinnate.com/wp-content/uploads/2014/05/Louvre-Museum-1.jpg", default_photo: true)
+Tag.create(name: "museums", photo_url: "http://travelinnate.com/wp-content/uploads/2014/05/Louvre-Museum-1.jpg", default_photo: true)
 
 Tag.create(name: "beaches", photo_url: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRyyzdIeiPHx76BMCxTg5rGmlq-WGTjoPOlgotGMKXeduRB4f0Y", default_photo: true)
 
 Tag.create(name: "clubs", photo_url: "http://www.absoluteability.com/wp-content/uploads/2013/08/club2.png", default_photo: true)
 
-Tag.create(name: "shopping", photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-aOmIcAl_NpjviVWSk2lD6_cpwSJLp6r0Z7fR3tG0oLDXapyq", default_photo: true)
+Tag.create(name: "shopping", photo_url: "http://blog.virtuoso.com/wp-content/uploads/2013/11/shopping_paris.jpg", default_photo: true)
 
 Tag.create(name: "street-food", photo_url: "http://www-mobilefoodnews-com.zippykid.netdna-cdn.com/wp-content/uploads/2013/05/SF-T1-food-trucks-great-lawn.jpg", default_photo: true)
 

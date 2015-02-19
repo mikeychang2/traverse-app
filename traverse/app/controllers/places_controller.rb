@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   def create
     p params
-    @yelp_link = request.url
+    @yelp_link = params[:url]
     @latitude = params[:location][:coordinate][:latitude]
     @longitude = params[:location][:coordinate][:longitude]
     @coordinates = "#{@latitude},#{@longitude}"

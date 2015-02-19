@@ -70,8 +70,10 @@ class EventsController < ApplicationController
   def show
     # trip = Trip.find(params[:trip_id])
     event = Event.find(params[:id])
+    place = event.place
+    event_and_place = [event,place]
 
-    render json: event
+    render json: event_and_place
   end
 
 

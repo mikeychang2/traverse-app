@@ -37,7 +37,6 @@ class TripsController < ApplicationController
         places.push(event.place)
       end
     end
-    p places
     return render json: places
   end
 

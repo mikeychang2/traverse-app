@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     auth_token = @user.generate_auth_token
 
+    p @user
+
     render json: { auth_token: auth_token, user_id: @user.id}
   end
 

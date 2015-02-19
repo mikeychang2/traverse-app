@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217182010) do
+ActiveRecord::Schema.define(version: 20150218120500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,8 @@ ActiveRecord::Schema.define(version: 20150217182010) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.string   "photo_url"
+    t.string   "photo_url",     default: "https://unsplash.imgix.net/11/converse-fields.jpg?fit=crop&fm=jpg&h=800&q=75&w=1050"
+    t.boolean  "default_photo", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150217182010) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo",      default: "https://stocksnap.io/img-thumbs/280h/E6CAA82218.jpg"
   end
 
   create_table "users", force: :cascade do |t|

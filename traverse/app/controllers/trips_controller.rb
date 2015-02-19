@@ -39,7 +39,6 @@ class TripsController < ApplicationController
     end
     p places
     return render json: places
-
   end
 
   private

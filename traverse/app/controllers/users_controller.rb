@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     p @user
 
-    render json: { auth_token: auth_token, user_id: @user.id}
+    render json: { auth_token: auth_token, user_id: @user.id, user_name: @user.name}
   end
 
   def show

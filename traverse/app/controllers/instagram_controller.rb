@@ -40,7 +40,7 @@ class InstagramController < ApplicationController
     p @current_user.ig_token
     p "#" * 20
 
-    response = HTTParty.get("https://api.instagram.com/v1/users/self/media/recent?count=15&access_token=#{@current_user.ig_token}")
+    response = HTTParty.get("https://api.instagram.com/v1/users/self/media/recent?count=30&access_token=#{@current_user.ig_token}")
     p "RESPONSE======================"
     p response.parsed_response
     urls = response.parsed_response["data"].map do |image|

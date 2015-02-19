@@ -8,7 +8,6 @@ class TagsController < ApplicationController
   tags = tag_ids.map{|id| Tag.find(id)}
   tags.uniq!
   return render json: tags
-
  end
 
   def create

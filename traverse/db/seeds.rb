@@ -86,7 +86,7 @@ hurdles = Event.create(title: "Hurdles", date: 20150220, content: "Decoupled aut
 hurdletag = Tag.create(name: "hurdles")
 EventTag.create(trip_id: trip.id, event_id: hurdles.id, tag_id: hurdletag.id)
 hurdle_place = Place.create(event_id: hurdles.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
-Photo.create(event_id: hurdle.id, url: 'http://tweakyourbiz.com/sales/files/Sales-Presentations-That-Fall-At-The-Final-Hurdle.jpg')
+Photo.create(event_id: hurdles.id, url: 'http://tweakyourbiz.com/sales/files/Sales-Presentations-That-Fall-At-The-Final-Hurdle.jpg')
 
 
 

@@ -70,7 +70,7 @@ Photo.create(event_id: team_dynamic.id, url: 'http://i26.photobucket.com/albums/
 dynam_place = Place.create(event_id: team_dynamic.id, yelp_link: "http://www.yelp.com/biz/hrd-coffee-shop-san-francisco-2", address: "521A 3rd Street, San Francisco, CA 94107", name: "HRD Cafe", photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/9eAc29FyN6SPUNzXLQhs5Q/ls.jpg", coordinates: "37.781340, -122.395212")
 
 # TEAM TECHNOLOGIES
-technologies = Event.create(title: "Technologies", date: 20150220, content: "We used Rails-API for our back end with a front end Angular.js, Node.js & Express.js stack.", trip_id: trip.id)
+technologies = Event.create(title: "Technologies", date: 20150220, content: "We used Rails-API for our back end with a front end Angular.js, Node.js & Express.js stack.  APIs: Google maps, Yelp, FB, Instagram." trip_id: trip.id)
 techtag = Tag.create(name: "technologies")
 EventTag.create(trip_id: trip.id, event_id: technologies.id, tag_id: techtag.id)
 Photo.create(event_id: technologies.id, url: "http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2011/04/bf_rails.jpg")
@@ -83,7 +83,7 @@ Photo.create(event_id: technologies.id, url: "http://socialwifiinc.com/wp-conten
 success_place = Place.create(event_id: technologies.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
 
 #  HURDLES
-hurdles = Event.create(title: "Hurdles", date: 20150220, content: "Mobile.  Sharing with friends. Tripit API.  Timeboxing.  Events by Day.  Decoupled authentication.  OAuth.  Instagram callbacks.  3rd party APIs.  Large data model.  CSS animations.", trip_id: trip.id)
+hurdles = Event.create(title: "Hurdles", date: 20150220, content: "Flickr.  Mobile.  Sharing with friends. Tripit API.  Timeboxing.  Events by Day.  Decoupled authentication.  OAuth.  Instagram callbacks.  3rd party APIs.  Large data model.  CSS animations.", trip_id: trip.id)
 hurdletag = Tag.create(name: "hurdles")
 EventTag.create(trip_id: trip.id, event_id: hurdles.id, tag_id: hurdletag.id)
 hurdle_place = Place.create(event_id: hurdles.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")

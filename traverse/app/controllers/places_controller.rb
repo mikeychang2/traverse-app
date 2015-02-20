@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
     @latitude = params[:location][:coordinate][:latitude]
     @longitude = params[:location][:coordinate][:longitude]
     @coordinates = "#{@latitude},#{@longitude}"
-    @address = params[:location][:display_address][0].concat(", " + params[:location][:display_address][2])
+    @address = params[:location][:display_address][0].concat(", " + params[:location][:display_address][1])
 
     p @address
 

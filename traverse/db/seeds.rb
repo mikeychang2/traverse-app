@@ -58,6 +58,17 @@ Photo.create(event_id: team.id, url: 'http://i26.photobucket.com/albums/c150/Joh
 Photo.create(event_id: team.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_2.jpeg')
 team_place = Place.create(event_id: team.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
 
+
+
+
+# TEAM DYNAMIC
+team_dynamic = Event.create(title: "Team Dynamic", date: 20150220, content: "Much Love!  Stand-ups every 3 hours.  Team lunches.  Core hour agreements.  Pairing & solo opportunities.  Frequent commits & merges. Communciation was number 1!", trip_id: trip.id)
+dynamtag = Tag.create(name: "team dynamics")
+EventTag.create(trip_id: trip.id, event_id: team_dynamic.id, tag_id: dynamtag.id)
+Photo.create(event_id: team_dynamic.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_3.jpeg')
+
+dynam_place = Place.create(event_id: team_dynamic.id, yelp_link: "http://www.yelp.com/biz/hrd-coffee-shop-san-francisco-2", address: "521A 3rd Street, San Francisco, CA 94107", name: "HRD Cafe", photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/9eAc29FyN6SPUNzXLQhs5Q/ls.jpg", coordinates: "37.781340, -122.395212")
+
 # TEAM TECHNOLOGIES
 technologies = Event.create(title: "Technologies", date: 20150220, content: "We used Rails-API for our back end with a front end Angular.js, Node.js & Express.js stack.", trip_id: trip.id)
 techtag = Tag.create(name: "technologies")
@@ -71,24 +82,14 @@ Photo.create(event_id: technologies.id, url: "http://www.ironpaper.com/webintel/
 Photo.create(event_id: technologies.id, url: "http://socialwifiinc.com/wp-content/uploads/2014/09/facebook-api.jpg")
 success_place = Place.create(event_id: technologies.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
 
-
-# TEAM DYNAMIC
-team_dynamic = Event.create(title: "Team Dynamic", date: 20150220, content: "Much Love!  Stand-ups every 3 hours.  Team lunches.  Core hour agreements.  Pairing & solo opportunities.  Frequent commits & merges. Communciation was number 1!", trip_id: trip.id)
-dynamtag = Tag.create(name: "team dynamics")
-EventTag.create(trip_id: trip.id, event_id: team_dynamic.id, tag_id: dynamtag.id)
-Photo.create(event_id: team_dynamic.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_3.jpeg')
-
-dynam_place = Place.create(event_id: team_dynamic.id, yelp_link: "http://www.yelp.com/biz/hrd-coffee-shop-san-francisco-2", address: "521A 3rd Street, San Francisco, CA 94107", name: "HRD Cafe", photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/9eAc29FyN6SPUNzXLQhs5Q/ls.jpg", coordinates: "37.781340, -122.395212")
-
-
-
-hurdles = Event.create(title: "Hurdles", date: 20150220, content: "Decoupled authentication.  3rd party APIs.Large data model.  CSS animations.", trip_id: trip.id)
+#  HURDLES
+hurdles = Event.create(title: "Hurdles", date: 20150220, content: "Timeboxing.  Events by Day.  Decoupled authentication.  OAuth.  Instagram callbacks.  3rd party APIs.  Large data model.  CSS animations.", trip_id: trip.id)
 hurdletag = Tag.create(name: "hurdles")
 EventTag.create(trip_id: trip.id, event_id: hurdles.id, tag_id: hurdletag.id)
 hurdle_place = Place.create(event_id: hurdles.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
 Photo.create(event_id: hurdles.id, url: 'http://tweakyourbiz.com/sales/files/Sales-Presentations-That-Fall-At-The-Final-Hurdle.jpg')
 
-
+#  SUCCESS
 
 success = Event.create(title: "Successes", date: 20150220, content: "Git.  CSS animations.  3rd party APIs.  Authentication.  New front-end technologies. Team commitment.", trip_id: trip.id)
 successtag = Tag.create(name: "successes")

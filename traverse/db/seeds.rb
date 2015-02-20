@@ -53,9 +53,9 @@ team = Event.create(title: "Team", date: 20150220, content: "Meet team Traverse:
 teamtag = Tag.create(name: "team")
 EventTag.create(trip_id: trip.id, event_id: team.id, tag_id: teamtag.id)
 
+Photo.create(event_id: team.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image5.jpg')
 Photo.create(event_id: team.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image.jpeg')
-Photo.create(event_id: team.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_3.jpeg')
-Photo.create(event_id: team.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_2.jpeg')
+
 team_place = Place.create(event_id: team.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
 
 
@@ -66,11 +66,14 @@ team_dynamic = Event.create(title: "Team Dynamic", date: 20150220, content: "Muc
 dynamtag = Tag.create(name: "team dynamics")
 EventTag.create(trip_id: trip.id, event_id: team_dynamic.id, tag_id: dynamtag.id)
 Photo.create(event_id: team_dynamic.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_3.jpeg')
+Photo.create(event_id: team_dynamic.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image1.jpg')
+
+
 
 dynam_place = Place.create(event_id: team_dynamic.id, yelp_link: "http://www.yelp.com/biz/hrd-coffee-shop-san-francisco-2", address: "521A 3rd Street, San Francisco, CA 94107", name: "HRD Cafe", photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/9eAc29FyN6SPUNzXLQhs5Q/ls.jpg", coordinates: "37.781340, -122.395212")
 
 # TEAM TECHNOLOGIES
-technologies = Event.create(title: "Technologies", date: 20150220, content: "We used Rails-API for our back end with a front end Angular.js, Node.js & Express.js stack.  APIs: Google maps, Yelp, FB, Instagram." trip_id: trip.id)
+technologies = Event.create(title: "Technologies", date: 20150220, content: "We used Rails-API for our back end with a front end Angular.js, Node.js & Express.js stack.  APIs: Google maps, Yelp, FB, Instagram.", trip_id: trip.id)
 techtag = Tag.create(name: "technologies")
 EventTag.create(trip_id: trip.id, event_id: technologies.id, tag_id: techtag.id)
 Photo.create(event_id: technologies.id, url: "http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2011/04/bf_rails.jpg")
@@ -78,16 +81,16 @@ Photo.create(event_id: technologies.id, url: "http://www.freelance-webexpert.fr/
 Photo.create(event_id: technologies.id, url: "https://i.cloudup.com/zfY6lL7eFa-3000x3000.png")
 Photo.create(event_id: technologies.id, url: "http://calebmadrigal.com/images/nodejs-logo.png")
 Photo.create(event_id: technologies.id, url: "http://qph.is.quoracdn.net/main-thumb-t-27685-200-SbPQqox7s7e707NeqUeSo5ri3qjwIQiV.jpeg")
+Photo.create(event_id: technologies.id, url: "http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/10968501_330473477163238_7413985143530983507_n.jpg")
 Photo.create(event_id: technologies.id, url: "http://www.ironpaper.com/webintel/wp-content/uploads/2013/09/instagram-api.png")
 Photo.create(event_id: technologies.id, url: "http://socialwifiinc.com/wp-content/uploads/2014/09/facebook-api.jpg")
+Photo.create(event_id: technologies.id, url: "http://i3.kym-cdn.com/entries/icons/facebook/000/000/184/Spaghetti_cat.JPG")
+
+
+
 success_place = Place.create(event_id: technologies.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
 
-#  HURDLES
-hurdles = Event.create(title: "Hurdles", date: 20150220, content: "Flickr.  Mobile.  Sharing with friends. Tripit API.  Events by Day.  Timeboxing", trip_id: trip.id)
-hurdletag = Tag.create(name: "hurdles")
-EventTag.create(trip_id: trip.id, event_id: hurdles.id, tag_id: hurdletag.id)
-hurdle_place = Place.create(event_id: hurdles.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
-Photo.create(event_id: hurdles.id, url: 'http://tweakyourbiz.com/sales/files/Sales-Presentations-That-Fall-At-The-Final-Hurdle.jpg')
+
 
 #  SUCCESS
 
@@ -95,7 +98,22 @@ success = Event.create(title: "Successes", date: 20150220, content: "Git.  CSS a
 successtag = Tag.create(name: "successes")
 EventTag.create(trip_id: trip.id, event_id: success.id, tag_id: successtag.id)
 success_place = Place.create(event_id: success.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
-Photo.create(event_id: success.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_3.jpeg')
+
+Photo.create(event_id: success.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image_2.jpeg')
+
+Photo.create(event_id: success.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image6.jpg
+')
+Photo.create(event_id: success.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image3.jpg
+')
+
+
+#  HURDLES
+hurdles = Event.create(title: "Stretches", date: 20150220, content: "Flickr.  Mobile.  Sharing with friends. Tripit API.  Events by Day.", trip_id: trip.id)
+hurdletag = Tag.create(name: "hurdles")
+EventTag.create(trip_id: trip.id, event_id: hurdles.id, tag_id: hurdletag.id)
+hurdle_place = Place.create(event_id: hurdles.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
+Photo.create(event_id: hurdles.id, url: 'http://tweakyourbiz.com/sales/files/Sales-Presentations-That-Fall-At-The-Final-Hurdle.jpg')
+Photo.create(event_id: hurdles.id, url: 'http://i26.photobucket.com/albums/c150/JohnsonCassandra/2015-DBC/image4.jpg')
 
 # FAKE TRIPS - KAUAI
 

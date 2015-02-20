@@ -49,7 +49,7 @@ Photo.create(event_id: concept.id, url: "http://i26.photobucket.com/albums/c150/
 concept_place = Place.create(event_id: concept.id, yelp_link: "http://www.yelp.com/biz/dev-bootcamp-san-francisco", address: "633 Folsom, San Francisco, CA 94107, United States", name: "Dev Bootcamp", photo_url: "http://media.npr.org/assets/img/2014/12/15/20141210_dbcsf_169_l_slide-6c0f00c3ff71eec42ce448854c367a80fbe404aa-s1100-c15.jpg", coordinates: "37.784755, -122.397230")
 
 # TEAM ABOUT THE TEAM
-team = Event.create(title: "Team", date: 20150220, content: "Meet team Traverse: Michael Chang, Karen Lo, Vivian Fiahlo, Leonard Bui, & CJ Johnson.", trip_id: trip.id)
+team = Event.create(title: "Team", date: 20150220, content: "Meet team Traverse: Michael Chang, Karen Lo, Vivian Fialho, Leonard Bui, & CJ Johnson.", trip_id: trip.id)
 teamtag = Tag.create(name: "team")
 EventTag.create(trip_id: trip.id, event_id: team.id, tag_id: teamtag.id)
 

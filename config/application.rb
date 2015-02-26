@@ -8,9 +8,9 @@ require 'rails/all'
 # config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
 # dotenv files
-require 'dotenv'
-Dotenv.load
-require "active_record/railtie"
+# require 'dotenv'
+# Dotenv.load
+# require "active_record/railtie"
 #  end =====
 
 # Require the gems listed in Gemfile, including any gems
@@ -26,7 +26,7 @@ module Traverse
 
     config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
       allow do
-        origins '*'
+        origins 'http://traverse-app.herokuapp.com'
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :delete, :put, :options, :head],

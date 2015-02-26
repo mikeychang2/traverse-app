@@ -32,7 +32,7 @@ gem 'httparty'
 
 
 #  Additional GEMS ==================
-gem 'dotenv-rails', :groups => [:development, :test]
+# gem 'dotenv-rails', :groups => [:development, :test]
 
 gem "figaro"
 gem "responders"

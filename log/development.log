@@ -56785,3 +56785,298 @@ Processing by EventsController#all_trip_events as HTML
   [1m[35mPhoto Load (0.3ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."event_id" = $1  [["event_id", 21]]
   [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."event_id" = $1[0m  [["event_id", 22]]
 Completed 200 OK in 13ms (Views: 5.3ms | ActiveRecord: 2.0ms)
+  [1m[36mUser Load (6.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: accept, content-type
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, content-type
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/auth" for ::1 at 2015-03-11 13:37:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthController#authenticate as HTML
+  Parameters: {"username"=>"Karen", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (13.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Karen"]]
+Completed 200 OK in 134ms (Views: 0.2ms | ActiveRecord: 17.1ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/trips" for ::1 at 2015-03-11 13:37:48 -0700
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTrip Load (2.5ms)[0m  SELECT "trips".* FROM "trips" WHERE "trips"."user_id" = $1  [["user_id", 2]]
+Completed 200 OK in 57ms (Views: 3.0ms | ActiveRecord: 5.7ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: accept, authorization, content-type
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization, content-type
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/trips" for ::1 at 2015-03-11 13:37:52 -0700
+Processing by TripsController#create as HTML
+  Parameters: {"title"=>"Hawaii"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (12.4ms)[0m  BEGIN
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "trips" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Hawaii"], ["user_id", 2], ["created_at", "2015-03-11 20:37:52.299744"], ["updated_at", "2015-03-11 20:37:52.299744"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 77ms (Views: 0.4ms | ActiveRecord: 18.3ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/trips/9/all_events" for ::1 at 2015-03-11 13:37:53 -0700
+Processing by EventsController#all_trip_events as HTML
+  Parameters: {"trip_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTrip Load (0.2ms)[0m  SELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mEvent Load (18.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."trip_id" = $1  ORDER BY date DESC[0m  [["trip_id", 9]]
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 19.2ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/trips/9/events" for ::1 at 2015-03-11 13:37:55 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"trip_id"=>"9"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mTrip Load (1.0ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "events" ("trip_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["trip_id", 9], ["created_at", "2015-03-11 20:37:55.208047"], ["updated_at", "2015-03-11 20:37:55.208047"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 5.1ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/tags/default" for ::1 at 2015-03-11 13:37:55 -0700
+Processing by TagsController#default_tags as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTag Load (2.7ms)[0m  SELECT "tags".* FROM "tags" WHERE "tags"."default_photo" = 't'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 6.2ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: accept, content-type
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, content-type
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/auth" for ::1 at 2015-03-11 13:45:39 -0700
+Processing by AuthController#authenticate as HTML
+  Parameters: {"username"=>"Karen", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Karen"]]
+Completed 200 OK in 78ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/trips" for ::1 at 2015-03-11 13:45:39 -0700
+Processing by TripsController#index as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mTrip Load (1.8ms)[0m  [1mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 15ms (Views: 3.3ms | ActiveRecord: 4.5ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/trips/9/all_events" for ::1 at 2015-03-11 13:45:40 -0700
+Processing by EventsController#all_trip_events as HTML
+  Parameters: {"trip_id"=>"9"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mTrip Load (0.3ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (1.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."trip_id" = $1  ORDER BY date DESC  [["trip_id", 9]]
+  [1m[36mPhoto Load (8.1ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."event_id" = $1[0m  [["event_id", 23]]
+Completed 200 OK in 31ms (Views: 7.2ms | ActiveRecord: 11.7ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: accept, authorization
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:9000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, authorization
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/tags/default" for ::1 at 2015-03-11 13:45:41 -0700
+Processing by TagsController#default_tags as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mTag Load (1.4ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE "tags"."default_photo" = 't'[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+Incoming Headers:
+  Origin: http://localhost:9000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/trips/9/events" for ::1 at 2015-03-11 13:45:41 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"trip_id"=>"9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mTrip Load (0.6ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("trip_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["trip_id", 9], ["created_at", "2015-03-11 20:45:41.514289"], ["updated_at", "2015-03-11 20:45:41.514289"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.9ms)

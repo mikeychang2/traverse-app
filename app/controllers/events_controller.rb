@@ -26,7 +26,6 @@ class EventsController < ApplicationController
     # event = trip.events.create(events_params)
     # event = trip.events.create(title: params[:title], content: params[:content], date: params[:date])
     event = trip.events.create()
-
     render json: event
   end
 

@@ -8,7 +8,7 @@ class InstagramController < ApplicationController
     p "#" * 20
     p @current_user
     p "#" * 20
-    response = HTTParty.post("https://api.instagram.com/oauth/access_token", :body => { client_id: ENV['INSTAGRAM_CLIENT_ID'], client_secret: ENV['INSTAGRAM_CLIENT_SECRET'], grant_type: "authorization_code", code: params['access_token'], redirect_uri: "http://traverse-app.herokuapp.com/#/instagram.html" })
+    response = HTTParty.post("https://api.instagram.com/oauth/access_token", :body => { client_id: ENV['INSTAGRAM_CLIENT_ID'], client_secret: ENV['INSTAGRAM_CLIENT_SECRET'], grant_type: "authorization_code", code: params['access_token'], redirect_uri: "http://traverse-app.herokuapp.com/instagram.html" })
 
      p "RESPONSE======================"
     p response
